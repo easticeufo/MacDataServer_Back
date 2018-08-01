@@ -10,8 +10,12 @@ import javax.servlet.ServletContextListener;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
+import com.madongfang.service.MacSerialService;
+import com.madongfang.util.TcpUtil;
 import com.mysql.jdbc.AbandonedConnectionCleanupThread;
 
 /**
@@ -54,9 +58,19 @@ public class StartStopListener implements ServletContextListener {
      * @see ServletContextListener#contextInitialized(ServletContextEvent)
      */
     public void contextInitialized(ServletContextEvent sce)  { 
-         // TODO Auto-generated method stub	
     	logger.info("web started");
+    	tcpUtil.startServer(port, macSerialService);
     }
     
     private final Logger logger = LoggerFactory.getLogger(getClass());
+    
+    @Value("${macSerialServer.port}")
+	private int port;
+    
+    @Autowired
+    private TcpUtil tcpUtil;
+    
+    @Autowired
+    private MacSerialService macSerialService;
+    
 }
