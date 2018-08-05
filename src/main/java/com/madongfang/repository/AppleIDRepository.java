@@ -6,4 +6,5 @@ import com.madongfang.entity.AppleID;
 
 public interface AppleIDRepository extends JpaRepository<AppleID, Integer> {
 
+	public AppleID findFirstByUsedFalse();
 }
