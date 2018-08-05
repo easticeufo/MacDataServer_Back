@@ -22,6 +22,18 @@ public class ImportController {
 		return importService.importHardwareCode(hardwareCodeFile);
 	}
 	
+	@PostMapping(value="/appleID")
+	public ReturnApi importAppleID(@RequestParam("appleIDFile") MultipartFile appleIDFile) throws IOException
+	{
+		return importService.importAppleID(appleIDFile);
+	}
+	
+	@PostMapping(value="/phoneNumber")
+	public ReturnApi importPhoneNumber(@RequestParam("phoneNumberFile") MultipartFile phoneNumberFile) throws IOException
+	{
+		return importService.importPhoneNumber(phoneNumberFile);
+	}
+	
 	@Autowired
 	private ImportService importService;
 }
