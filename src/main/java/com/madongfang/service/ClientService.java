@@ -18,7 +18,7 @@ import com.madongfang.repository.PhoneNumberRepository;
 @Service
 public class ClientService {
 
-	public SendInfoApi getSendInfo() {
+	public SendInfoApi obtainSendInfo() {
 		SendInfoApi sendInfoApi = new SendInfoApi();
 		AppleID appleID = appleIDRepository.findFirstByUsedFalse();
 		if (appleID == null)
