@@ -7,6 +7,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import com.madongfang.entity.PhoneNumber;
 
 public interface PhoneNumberRepository extends JpaRepository<PhoneNumber, Integer> {
-
-	public List<PhoneNumber> findFirst89ByOrderByUseCountAsc();
+	
+	public List<PhoneNumber> findFirst89ByOrderByUseCountAscIdAsc();
 }

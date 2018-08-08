@@ -30,7 +30,7 @@ public class ClientService {
 		appleIDRepository.save(appleID);
 		
 		List<PhoneNumberApi> phoneNumbers = new LinkedList<>();
-		for (PhoneNumber phoneNumber : phoneNumberRepository.findFirst89ByOrderByUseCountAsc()) {
+		for (PhoneNumber phoneNumber : phoneNumberRepository.findFirst89ByOrderByUseCountAscIdAsc()) {
 			phoneNumbers.add(PhoneNumberService.phoneNumber2Api(phoneNumber));
 			phoneNumber.setUseCount(phoneNumber.getUseCount() + 1);
 			phoneNumberRepository.save(phoneNumber);

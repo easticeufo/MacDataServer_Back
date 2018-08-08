@@ -4,6 +4,9 @@ import java.util.LinkedList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.convert.converter.Converter;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import com.madongfang.api.PhoneNumberApi;
@@ -29,6 +32,18 @@ public class PhoneNumberService {
 		}
 		
 		return phoneNumberApis;
+	}
+	
+	public Page<PhoneNumberApi> getPhoneNumbers(Pageable pageable) {
+		Page<PhoneNumber> phoneNumbers;
+		phoneNumbers = phoneNumberRepository.findAll(pageable);
+		
+		return phoneNumbers.map(new Converter<PhoneNumber, PhoneNumberApi>() {
+			@Override
+			public PhoneNumberApi convert(PhoneNumber phoneNumber) {
+				return phoneNumber2Api(phoneNumber);
+			}
+		});
 	}
 	
 	@Autowired
