@@ -6,6 +6,8 @@ import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -118,15 +120,17 @@ public class ImportService {
 		
 		InputStream in = phoneNumberFile.getInputStream();
 		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(in));
+		
+		Pattern pattern = Pattern.compile("(\\+?86)?(1\\d{10})");
 		String line = bufferedReader.readLine();
 		while (line != null)
 		{
 			logger.debug("readLine={}", line);
-			line = line.trim();
-			if (line.length() > 0)
+			Matcher matcher = pattern.matcher(line);
+			if (matcher.find())
 			{
 				PhoneNumber phoneNumber = new PhoneNumber();
-				phoneNumber.setNumber(line);
+				phoneNumber.setNumber("86" + matcher.group(2));
 				phoneNumber.setUseCount(0);
 				phoneNumbers.add(phoneNumber);
 			}
