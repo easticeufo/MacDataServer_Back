@@ -50,6 +50,14 @@ public class HardwareCodeApi {
 		this.productName = productName;
 	}
 
+	public String getSmUuid() {
+		return smUuid;
+	}
+
+	public void setSmUuid(String smUuid) {
+		this.smUuid = smUuid;
+	}
+
 	public Boolean getUsed() {
 		return used;
 	}
@@ -69,6 +77,8 @@ public class HardwareCodeApi {
 	private String boardId;
 	
 	private String productName;
+	
+	private String smUuid;
 	
 	private Boolean used;
 }

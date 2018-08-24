@@ -21,6 +21,7 @@ public class HardwareCodeService {
 		hardwareCodeApi.setProductName(hardwareCode.getProductName());
 		hardwareCodeApi.setRom(hardwareCode.getRom());
 		hardwareCodeApi.setSerialNumber(hardwareCode.getSerialNumber());
+		hardwareCodeApi.setSmUuid(hardwareCode.getSmUuid());
 		hardwareCodeApi.setUsed(hardwareCode.isUsed());
 		return hardwareCodeApi;
 	}

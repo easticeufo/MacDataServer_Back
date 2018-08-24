@@ -7,4 +7,6 @@ import com.madongfang.entity.HardwareCode;
 public interface HardwareCodeRepository extends JpaRepository<HardwareCode, Integer> {
 
 	public HardwareCode findFirstByUsedFalse();
+	
+	public HardwareCode findBySerialNumber(String serialNumber);
 }

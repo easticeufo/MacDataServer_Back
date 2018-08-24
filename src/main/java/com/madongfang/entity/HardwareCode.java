@@ -1,5 +1,6 @@
 package com.madongfang.entity;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
@@ -56,6 +57,14 @@ public class HardwareCode {
 		this.productName = productName;
 	}
 
+	public String getSmUuid() {
+		return smUuid;
+	}
+
+	public void setSmUuid(String smUuid) {
+		this.smUuid = smUuid;
+	}
+
 	public boolean isUsed() {
 		return used;
 	}
@@ -70,6 +79,7 @@ public class HardwareCode {
 	
 	private String rom;
 	
+	@Column(length=32, unique=true)
 	private String serialNumber;
 	
 	private String boardSerialNumber;
@@ -77,6 +87,8 @@ public class HardwareCode {
 	private String boardId;
 	
 	private String productName;
+	
+	private String smUuid;
 	
 	private boolean used;
 }
