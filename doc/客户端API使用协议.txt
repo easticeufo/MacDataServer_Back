@@ -1,0 +1,64 @@
+=================================================
+获取客户端使用信息
+=================================================
+Request:
+GET /api/client/useInfo?serialNumber=C07L11J8DWYM
+
+Response:
+{
+	"id": 1,
+	"status": 0,
+	"startTime": null,
+	"appleID": {
+		"id": 5,
+		"account": "nsiy8870@outlook.com",
+		"password": "Aa112211",
+		"used": true
+	},
+	"hardwareCode": {
+		"id": 69,
+		"rom": "44FB426D6DBA",
+		"serialNumber": "C07L11J8DWYM",
+		"boardSerialNumber": "C07326703B2F1H8AA",
+		"boardId": "Mac-8ED6AF5B48C039E1",
+		"productName": "Macmini5,1",
+		"smUuid": "1A03F051-F3AF-45FF-893F-37F976B88876",
+		"used": true
+	}
+}
+
+=================================================
+设置客户端使用信息状态
+=================================================
+Request:
+PUT /api/client/useInfo
+{
+	"id": 2,
+	"status": 1
+}
+
+Response:
+{
+	"id": 2,
+	"status": 1,
+	"startTime": 1535157527148,
+	"appleID": null,
+	"hardwareCode": null
+}
+
+=================================================
+获取电话号码
+=================================================
+Request:
+POST /api/client/obtainPhoneNumbers?size=2
+
+Response:
+[{
+	"id": 200001,
+	"number": "8618506830687",
+	"useCount": 3
+}, {
+	"id": 200002,
+	"number": "8618506830689",
+	"useCount": 3
+}]

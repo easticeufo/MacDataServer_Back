@@ -121,9 +121,8 @@ public class MacSerialService implements Callback {
 			clientUseInfoRepository.save(clientUseInfo);
 		}
 		
-		
 		return String.format("%s:%s:%s:%s:%s:%s", hardwareCode.getRom(), hardwareCode.getBoardSerialNumber(), 
-				hardwareCode.getSerialNumber(), hardwareCode.getBoardId(), hardwareCode.getProductName(), hardwareCode.getSmUuid());
+				hardwareCode.getSerialNumber(), hardwareCode.getSmUuid(), hardwareCode.getBoardId(), hardwareCode.getProductName());
 	}
 
 }
